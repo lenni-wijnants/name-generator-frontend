@@ -10,15 +10,15 @@ import {Character} from '../../model/Character';
 export class ApiService {
 
   baseUrl = 'https://nexios-name-generator.herokuapp.com';
-  lastCreated: Character;
 
   constructor(private http: HttpClient) { }
 
-  create(candidate: Candidate) {
-    (this.http.post(this.baseUrl + '/api/candidate', candidate) as Observable<Character>).subscribe(char => {
-      this.lastCreated = char;
-      console.log(this.lastCreated);
-    });
+  create(candidate: Candidate): Observable<Character> {
+    return this.http.post(this.baseUrl + '/api/candidate', candidate) as Observable<Character>;
+  }
+
+  find(email: string): Observable<Character> {
+    return this.http.get(this.baseUrl + '/api/character/' + email) as Observable<Character>;
   }
 
   getAll(): Observable<Character[]> {

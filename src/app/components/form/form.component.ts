@@ -3,7 +3,7 @@ import {Candidate} from '../../../model/Candidate';
 import {WebcamImage} from 'ngx-webcam';
 import {Observable, Subject} from 'rxjs';
 import {ApiService} from '../../services/api.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, NavigationExtras, Router} from '@angular/router';
 import {Character} from '../../../model/Character';
 
 @Component({
@@ -55,8 +55,9 @@ export class FormComponent implements OnInit {
 
     console.table(this.candidate);
 
-    this.apiService.create(this.candidate)
-    this.router.navigateByUrl('/confirmation');
+    this.apiService.create(this.candidate);
+    const navExtras: NavigationExtras = { state: { email: this.candidate.email }};
+    this.router.navigateByUrl('/confirmation', navExtras);
   }
 
 }

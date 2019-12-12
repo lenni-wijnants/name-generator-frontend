@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterContentInit, Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ApiService} from '../../services/api.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Character} from '../../../model/Character';
@@ -20,11 +20,17 @@ export class ConfirmationComponent implements OnInit {
               private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    this.character = this.apiService.lastCreated;
-    this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' + this.character.characterImg);
+    this.apiService.find(window.history.state.email).subscribe(char => {
+      this.character = char;
+      this.initImage();
+    });
   }
 
   goBack() {
     this.router.navigateByUrl('/form');
+  }
+
+  initImage() {
+    this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' + this.character.characterImg);
   }
 }
