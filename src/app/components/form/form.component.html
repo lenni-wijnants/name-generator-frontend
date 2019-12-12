@@ -1,0 +1,30 @@
+<form #myForm="ngForm" (ngSubmit)="submitInfo($event, myForm)">
+
+  <label for="firstname">First Name</label>
+  <input id="firstname" name="firstname" type="text" [ngModel]="candidate.firstName" />
+
+  <label for="lastname">Last Name</label>
+  <input id="lastname" name="lastname" type="text" [ngModel]="candidate.lastName" />
+
+  <label for="email">Email</label>
+  <input id="email" name="email" type="text" [ngModel]="candidate.email" />
+
+  <label for="phone">Phone number</label>
+  <input id="phone" name="phone" type="text" [ngModel]="candidate.phoneNumber" />
+
+  <label for="skills">Skills</label>
+  <textarea id="skills" name="skills" type="text" [ngModel]="candidate.skills"></textarea>
+
+  <webcam height="300" width="300"
+          [allowCameraSwitch]="false"
+          [trigger]="getTriggerObservable()"
+          (imageCapture)="handleImage($event)"
+  ></webcam>
+
+  <div *ngIf="webcamImage">
+    <img [src]="webcamImage.imageAsDataUrl">
+  </div>
+
+  <button>Generate Name!</button>
+
+</form>

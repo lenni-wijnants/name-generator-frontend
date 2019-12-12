@@ -1,0 +1,23 @@
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+}
+
+webcam {
+  margin-top: 1em;
+}
+
+label {
+  margin-top: 2em;
+}
+
+button {
+  width: 20em;
+  margin-top: 1em;
+}
+
+input, textarea {
+  width: 20em;
+
+}
