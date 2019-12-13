@@ -29,13 +29,14 @@ export class WallComponent implements OnInit {
 
   refreshImages() {
     this.apiService.getAll().subscribe(characters => {
+      const tempChars: SanitizedCharacter[] = [];
       characters.forEach(char => {
-        this.characters.push(new SanitizedCharacter(
+        tempChars.push(new SanitizedCharacter(
           char,
           this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' + char.characterImg)
 
         ));
-        this.characters.reverse();
+        this.characters = tempChars.reverse();
 
       });
     });

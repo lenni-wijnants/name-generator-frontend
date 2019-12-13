@@ -3,6 +3,7 @@ div > *{
 }
 
 p {
+  margin: 0 !important;
   text-align: center;
   color: aqua;
   font-size: 18px;
@@ -26,8 +27,8 @@ button:hover {
   background-color: aqua;
 }
 
-img {
-  margin-left: 30vw;
+img.examplePhoto {
+  margin-left: 30vw !important;
   width: 40vw;
 }
 
