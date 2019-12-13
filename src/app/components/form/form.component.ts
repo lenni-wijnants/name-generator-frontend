@@ -53,9 +53,7 @@ export class FormComponent implements OnInit {
 
     this.candidate.image = this.webcamImage.imageAsBase64;
 
-    console.table(this.candidate);
-
-    this.apiService.create(this.candidate);
+    this.apiService.create(this.candidate).subscribe();
     const navExtras: NavigationExtras = { state: { email: this.candidate.email }};
     this.router.navigateByUrl('/confirmation', navExtras);
   }
