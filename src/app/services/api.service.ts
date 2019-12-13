@@ -10,6 +10,7 @@ import {Character} from '../../model/Character';
 export class ApiService {
 
   baseUrl = 'https://nexios-name-generator.herokuapp.com';
+  public lastCreated: Observable<Character>;
 
   constructor(private http: HttpClient) { }
 

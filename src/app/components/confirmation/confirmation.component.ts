@@ -2,7 +2,7 @@ import {AfterContentInit, Component, OnChanges, OnInit, SimpleChanges} from '@an
 import {ApiService} from '../../services/api.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Character} from '../../../model/Character';
-import {DomSanitizer} from '@angular/platform-browser';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-confirmation',
@@ -11,8 +11,8 @@ import {DomSanitizer} from '@angular/platform-browser';
 })
 export class ConfirmationComponent implements OnInit {
 
-  character: Character;
-  imagePath: string;
+  character: Character = new Character('','');
+  imagePath: SafeResourceUrl;
 
   constructor(private apiService: ApiService,
               private route: ActivatedRoute,
@@ -31,6 +31,6 @@ export class ConfirmationComponent implements OnInit {
   }
 
   initImage() {
-    this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' + this.character.characterImg);
+    this.imagePath = this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' + this.character.characterImg);
   }
 }
