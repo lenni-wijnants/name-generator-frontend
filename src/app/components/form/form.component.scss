@@ -1,23 +1,70 @@
-form {
+form, form > div {
   display: flex;
   flex-direction: column;
   margin: 1em;
 }
 
-webcam {
-  margin-top: 1em;
+.logo {
+  width: 30vw;
+  margin-left: 38vw;
+  margin-top: 3em;
+}
+
+form > * {
+  margin-left: 40vw;
+}
+
+form > div {
+  margin: 0;
+}
+
+form > div > * {
+  margin-left: 40vw;
 }
 
 label {
+  color: aqua;
+  font-size: 18px;
   margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+input, textarea, button {
+  width: 20vw;
+  padding: 0.5em;
+  border: 2px solid aqua;
+  color: white;
+  border-radius: 0.26rem;
+  background-color: black;
+  font-size: 18px;
+  font-weight: bold;
+
+}
+
+textarea {
+  margin-bottom: 1em;
+}
+
+webcam {
+  margin-left: 20vw !important;
+  text-align: center;
+  width: 60vw;
 }
 
 button {
-  width: 20em;
-  margin-top: 1em;
+  margin-top: 2em;
+  padding: 1em;
+  border: 2px solid aqua;
+  color: aqua;
+  border-radius: 0.26rem;
+  background-color: black;
+  font-size: 18px;
+  font-weight: bold;
+  width:21.5vw;
 }
 
-input, textarea {
-  width: 20em;
-
+button:hover {
+  cursor: pointer;
+  color: black;
+  background-color: aqua;
 }

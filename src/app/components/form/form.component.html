@@ -1,28 +1,31 @@
+<img class="logo" src="../../../assets/logo.png" />
+
 <form #myForm="ngForm" (ngSubmit)="submitInfo($event, myForm)">
 
-  <label for="firstname">First Name</label>
-  <input id="firstname" name="firstname" type="text" [ngModel]="candidate.firstName" />
+  <div class="formcontent">
+    <label for="firstname">First Name</label>
+    <input id="firstname" name="firstname" type="text" [ngModel]="candidate.firstName" ng-minlength="2" required="true"/>
 
-  <label for="lastname">Last Name</label>
-  <input id="lastname" name="lastname" type="text" [ngModel]="candidate.lastName" />
+    <label for="lastname">Last Name</label>
+    <input id="lastname" name="lastname" type="text" [ngModel]="candidate.lastName" ng-minlength="2" required="true" />
 
-  <label for="email">Email</label>
-  <input id="email" name="email" type="text" [ngModel]="candidate.email" />
+    <label for="email">Email</label>
+    <input id="email" name="email" type="text" [ngModel]="candidate.email" ng-minlength="2" required="true" />
 
-  <label for="phone">Phone number</label>
-  <input id="phone" name="phone" type="text" [ngModel]="candidate.phoneNumber" />
+    <label for="phone">Phone number</label>
+    <input id="phone" name="phone" type="text" [ngModel]="candidate.phoneNumber" ng-minlength="2" required="true" />
 
-  <label for="skills">Skills</label>
-  <textarea id="skills" name="skills" type="text" [ngModel]="candidate.skills"></textarea>
+    <label for="skills">Skills</label>
+    <textarea id="skills" name="skills" type="text" [ngModel]="candidate.skills" ng-minlength="2" required="true"></textarea>
+  </div>
 
-  <webcam height="300" width="300"
-          [allowCameraSwitch]="false"
-          [trigger]="getTriggerObservable()"
-          (imageCapture)="handleImage($event)"
-  ></webcam>
-
-  <div *ngIf="webcamImage">
-    <img [src]="webcamImage.imageAsDataUrl">
+  <div>
+    <webcam height="400" width="400"
+            [hidden]="!myForm.form.valid"
+            [allowCameraSwitch]="false"
+            [trigger]="getTriggerObservable()"
+            (imageCapture)="handleImage($event)"
+    ></webcam>
   </div>
 
   <button>Generate Name!</button>

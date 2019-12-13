@@ -1,3 +1,8 @@
-<div *ngFor="let character of characters">
-  <p>{{character.characterName}}</p>
+<div id="wallContainer">
+  <div class="profile" *ngFor="let character of characters">
+
+    <img [src]="character.sanitizedImage" />
+    <p>{{character.char.characterName}}</p>
+  </div>
 </div>
+

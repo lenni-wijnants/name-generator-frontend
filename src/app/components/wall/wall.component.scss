@@ -1,0 +1,22 @@
+div#wallContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 1vw;
+}
+
+div.profile {
+  margin: 2vw;
+  width: fit-content;
+}
+
+img {
+  width: 27vw;
+}
+
+p {
+  text-align: center;
+  color: aqua;
+  font-size: 18px;
+  text-transform: uppercase;
+}

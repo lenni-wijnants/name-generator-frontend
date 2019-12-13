@@ -1,0 +1,32 @@
+div > *{
+  margin: 2em 2em 2em 40vw;
+}
+
+p {
+  text-align: center;
+  color: aqua;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+button {
+  padding: 1em;
+  border: 2px solid aqua;
+  color: aqua;
+  border-radius: 0.26rem;
+  background-color: black;
+  font-size: 18px;
+  font-weight: bold;
+  width:21.5vw;
+}
+
+button:hover {
+  cursor: pointer;
+  color: black;
+  background-color: aqua;
+}
+
+img {
+  margin-left: 30vw;
+  width: 40vw;
+}
