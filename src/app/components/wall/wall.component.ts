@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../../services/api.service';
 import {Character} from '../../../model/Character';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
@@ -15,17 +15,28 @@ export class WallComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private sanitizer: DomSanitizer
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
+    this.refreshImages();
+    setInterval(() => {
+       this.refreshImages();
+      }, 5000
+
+    );
+  }
+
+  refreshImages() {
     this.apiService.getAll().subscribe(characters => {
-      characters.forEach( char => {
+      characters.forEach(char => {
         this.characters.push(new SanitizedCharacter(
           char,
           this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' + char.characterImg)
 
         ));
         this.characters.reverse();
+
       });
     });
   }
